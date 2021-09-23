@@ -1,4 +1,3 @@
-sessionStorage.setItem('products',[])
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready)
 } else {
@@ -39,12 +38,20 @@ async function addToCartClicked(h,event) {
         "price" : price,
         "imageSrc" : imageSrc
     }
-    sessionStorage.setItem('title',JSON.stringify(product))
+    sessionStorage.setItem(title,JSON.stringify(product))
     // await products.push(product)
     // console.log(products)
-    console.log(sessionStorage.getItem('title'))
+    console.log(sessionStorage.getItem(title))
     // addItemToCart(title, price, imageSrc)
     // updateCartTotal()
+    for(var j=0;j<=sessionStorage.length-1;j++)
+    {
+        var key = sessionStorage.key(j);
+        console.log(key);
+        var val = JSON.parse(sessionStorage.getItem(key))
+        if(val=="IsThisFirstTime_Log_From_LiveServer") continue;
+        console.log(val.price);
+    }
 }
 
 // function addItemToCart(title, price, imageSrc) {
