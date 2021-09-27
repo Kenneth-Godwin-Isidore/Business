@@ -1,15 +1,24 @@
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready)
 } else {
+    // if(sessionStorage.length!=0)
+    // {
+    //     for(var j=0;j<=sessionStorage.length-1;j++)
+    //     {
+    //         var key = sessionStorage.key(j);
+    //         console.log(key);
+    //         var val = JSON.parse(sessionStorage.getItem(key))
+    //         if(val=="IsThisFirstTime_Log_From_LiveServer") continue;
+    //         addItemToCart(val.title, val.price, val.imageSrc)
+    //         //console.log(total)
+    //     }
+    // }
     ready()
 }
 function ready(){
-    //onsole.log("hey")
     let addToCartButtons = document.getElementsByClassName('action-cart-2')
+    document.getElementsByClassName("count-style")[0].innerText = sessionStorage.length
     console.log(addToCartButtons)
-    //updateCartTotal()
-    //addToCartButtons.forEach()     
-
     for (var i = 0; i < addToCartButtons.length; i++) {
         let r = i
         let button = addToCartButtons[i]
@@ -21,6 +30,13 @@ function ready(){
         button.addEventListener('click', removeCartItem)
     }
 
+    var modelCart = document.getElementsByClassName('quickview-btn-cart')
+    for(var i=0;i<modelCart.length;i++)
+    {
+        var button = modelCart[i]
+        button.addEventListener('click', addToCartModel)
+    }
+
 }
 async function addToCartClicked(h,event) {
     event.preventDefault();
@@ -28,36 +44,55 @@ async function addToCartClicked(h,event) {
     let shopItem = document.getElementsByClassName('product-wrapper')[h]
     let h4 = shopItem.getElementsByClassName('product-item')[0]
     let title = h4.getElementsByTagName('h4')[0].innerText
-    let span = shopItem.getElementsByClassName('product-price-2')[0]
-    let price = span.getElementsByTagName('span')[0].innerText
     let image = shopItem.getElementsByClassName('product-img')[0]
     let imageSrc = image.getElementsByTagName('img')[0].src
     let product = {
         "title" : title,
-        "price" : price,
         "imageSrc" : imageSrc
     }
-    sessionStorage.setItem(title,JSON.stringify(product))
-    console.log(sessionStorage.getItem(title))
-    addItemToCart(title, price, imageSrc)
     document.getElementsByClassName("count-style")[0].innerText = sessionStorage.length
-    updateCartTotal()
+    if(sessionStorage.getItem(title)==null)
+    {
+        sessionStorage.setItem(title,JSON.stringify(product))
+        console.log(sessionStorage.getItem(title))
+        addItemToCart(title, imageSrc)
+    }
+    
 }
 
-function addItemToCart(title, price, imageSrc) {
+function addToCartModel(event)
+{
+    event.preventDefault()
+    var button = event.target
+    var model = button.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement
+    console.log(model)
+    var imageSrc = model.getElementsByClassName('tab-pane')[0].getElementsByTagName('img')[0].src
+    var title = model.getElementsByClassName('qwick-view-content')[0].getElementsByTagName('h3')[0].innerText
+    let product = {
+        "title" : title,
+        "imageSrc" : imageSrc
+    }
+    document.getElementsByClassName("count-style")[0].innerText = sessionStorage.length
+    if(sessionStorage.getItem(title)==null)
+    {
+        sessionStorage.setItem(title,JSON.stringify(product))
+        console.log(sessionStorage.getItem(title))
+        addItemToCart(title, imageSrc)
+    }
+}
+
+function addItemToCart(title, imageSrc) {
+    document.getElementsByClassName("count-style")[0].innerText = sessionStorage.length
     var cartRow = document.createElement('li')
     cartRow.classList.add('single-product-cart')
     var cartItemContainer = document.getElementsByClassName('cart-content')[0]
     var cartUl = cartItemContainer.getElementsByTagName('ul')[0]
-    var cartRows = cartUl.getElementsByTagName('li')
-    cartRows[cartRows.length-1].remove()
     var cartRowContents = `
         <div class="cart-img">
             <a href="#"><img src= "${imageSrc}" alt="" width = "80" height = "80"></a>
         </div>
         <div class="cart-title">
             <h3><a href="#"> ${title}</a></h3>
-            <span>${price}</span>
         </div>
         <div class="cart-delete">
             <a href="#"><i class="ti-trash"></i></a>
@@ -69,32 +104,10 @@ function addItemToCart(title, price, imageSrc) {
 
 function removeCartItem(event) {
     var buttonClicked = event.target
+    var h = buttonClicked.parentElement.parentElement.parentElement.getElementsByClassName("cart-title")[0].getElementsByTagName("h3")[0].innerText
+    sessionStorage.removeItem(h);
     buttonClicked.parentElement.parentElement.parentElement.remove()
-    cartRows[cartRows.length-1].remove()
-    updateCartTotal()
-}
-function updateCartTotal() {
     var cartItemContainer = document.getElementsByClassName('cart-content')[0]
     var cartUl = cartItemContainer.getElementsByTagName('ul')[0]
-    var cartRows = cartUl.getElementsByTagName('li')
-    var total = 0
-    for(var j=0;j<=sessionStorage.length-1;j++)
-    {
-        var key = sessionStorage.key(j);
-        console.log(key);
-        var val = JSON.parse(sessionStorage.getItem(key))
-        if(val=="IsThisFirstTime_Log_From_LiveServer") continue;
-        total+=parseFloat(val.price.replace("$",""));
-        console.log(total)
-    }
-    total = Math.round(total * 100) / 100
-    var cartRow = document.createElement('li')
-    cartRow.classList.add('single-product-cart')
-    var cartRowContents = `<div class="cart-total">
-            <h4>Total : <span>$ ${total}</span></h4>
-    </div>`
-    cartRow.innerHTML = cartRowContents
-    cartUl.append(cartRow)
-    // var shopTotal = document.getElementsByClassName('cart-total')[0].getElementsByTagName('h4')[0]
-    // shopTotal.getElementsByTagName('span')[0].innerText = '$' + total
+    document.getElementsByClassName("count-style")[0].innerText = sessionStorage.length
 }
