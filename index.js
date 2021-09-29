@@ -37,13 +37,6 @@ function ready(){
         button.addEventListener('click', addToCartModel)
     }
 
-    var image = document.getElementsByClassName('tab-pane')
-    for(var i=0;i<image.length;i++)
-    {
-        var img= image[i]
-        img.addEventListener('mouseover',addZoom)
-    }
-
 }
 async function addToCartClicked(h,event) {
     event.preventDefault();
@@ -64,7 +57,6 @@ async function addToCartClicked(h,event) {
         console.log(sessionStorage.getItem(title))
         addItemToCart(title, imageSrc)
     }
-
     
 }
 
@@ -119,43 +111,3 @@ function removeCartItem(event) {
     var cartUl = cartItemContainer.getElementsByTagName('ul')[0]
     document.getElementsByClassName("count-style")[0].innerText = sessionStorage.length
 }
-
-function addZoom(event) {
-    // (A) FETCH CONTAINER + IMAGE
-    var container = event.target
-        imgsrc = container.currentStyle || window.getComputedStyle(container, false),
-        imgsrc = imgsrc.backgroundImage.slice(4, -1).replace(/"/g, ""),
-        img = new Image();
-  
-    // (B) LOAD IMAGE + ATTACH ZOOM
-    img.src = imgsrc;
-    img.onload = function () {
-      var imgWidth = img.naturalWidth,
-          imgHeight = img.naturalHeight,
-          ratio = imgHeight / imgWidth,
-          percentage = ratio * 100 + '%';
-  
-      // (C) ZOOM ON MOUSE MOVE
-      container.onmousemove = function (e) {
-        var boxWidth = container.clientWidth,
-            rect = e.target.getBoundingClientRect(),
-            xPos = e.clientX - rect.left,
-            yPos = e.clientY - rect.top,
-            xPercent = xPos / (boxWidth / 100) + "%",
-            yPercent = yPos / ((boxWidth * ratio) / 100) + "%";
-  
-        Object.assign(container.style, {
-          backgroundPosition: xPercent + ' ' + yPercent,
-          backgroundSize: imgWidth + 'px'
-        });
-      };
-  
-      // (D) RESET ON MOUSE LEAVE
-      container.onmouseleave = function (e) {
-        Object.assign(container.style, {
-          backgroundPosition: 'center',
-          backgroundSize: 'cover'
-        });
-      };
-    }
-  };

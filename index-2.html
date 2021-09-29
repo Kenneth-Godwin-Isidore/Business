@@ -22,6 +22,16 @@
         <link rel="stylesheet" href="assets/css/responsive.css">
         <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
         <script src = "index.js" async></script>
+        <style>
+            .enlarge {
+                transition:transform 0.25s ease;
+            }
+
+            .enlarge:hover {
+                -webkit-transform:scale(3.5); /* or some other value */
+                transform:scale(3.5);
+            }
+        </style>
     </head>
     <body>
         <div class="wrapper">
@@ -111,6 +121,19 @@
             </div>
             <!-- main-search start -->
             <div class="main-search-active">
+                <div class="sidebar-search-icon">
+                    <button class="search-close"><span class="ti-close"></span></button>
+                </div>
+                <div class="sidebar-search-input">
+                    <form>
+                        <div class="form-search">
+                            <input id="search" class="input-text" value="" placeholder="Search Entire Store" type="search">
+                            <button>
+                                <i class="ti-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
             <div class="slider-area">
                 <div class="slider-active owl-carousel">
@@ -507,7 +530,7 @@
                                 </div>
                                 <div class="quick-view-list nav" role="tablist">
                                     <a class="active" href="assets/img/Nandi/PXL_20210917_104215835_3.jpg">
-                                        <img src="assets/img/Nandi/PXL_20210917_104215835_3.jpg" height = "112" width = "100">
+                                        <img src="assets/img/Nandi/PXL_20210917_104215835_3.jpg" height = "112" class="enlarge" width = "100">
                                     </a>
                                     <!-- <a href="#modal2" data-toggle="tab">
                                         <img src="assets/img/quick-view/s5.jpg" alt="">
@@ -566,10 +589,10 @@
                                 </div>
                                 <div class="quick-view-list nav" role="tablist">
                                     <a class="active" href="assets/img/Ganesh/PXL_20210918_101801202_3.jpg">
-                                        <img src="assets/img/Ganesh/PXL_20210918_101801202_3.jpg" height = "112" width = "100">
+                                        <img src="assets/img/Ganesh/PXL_20210918_101801202_3.jpg" height = "112" class="enlarge" width = "100">
                                     </a>
                                     <a href="assets/img/Ganesh/PXL_20210918_101815474_3.jpg" >
-                                        <img src="assets/img/Ganesh/PXL_20210918_101815474_3.jpg" height = "112" width = "100">
+                                        <img src="assets/img/Ganesh/PXL_20210918_101815474_3.jpg" height = "112" class="enlarge" width = "100">
                                     </a>
                                     <!-- <a href="#modal3" data-toggle="tab">
                                         <img src="assets/img/quick-view/s6.jpg" alt="">
@@ -625,10 +648,10 @@
                                 </div>
                                 <div class="quick-view-list nav" role="tablist">
                                     <a class="active" href="assets/img/Krishna and Mother/PXL_20210918_103346231_3.jpg">
-                                        <img src="assets/img/Krishna and Mother/PXL_20210918_103346231_3.jpg" height = "112" width = "100">
+                                        <img src="assets/img/Krishna and Mother/PXL_20210918_103346231_3.jpg" height = "112" class="enlarge" width = "100">
                                     </a>
                                     <a href="assets/img/Krishna and Mother/PXL_20210918_103402975_3.jpg" >
-                                        <img src="assets/img/Krishna and Mother/PXL_20210918_103402975_3.jpg" height = "112" width = "100">
+                                        <img src="assets/img/Krishna and Mother/PXL_20210918_103402975_3.jpg" height = "112" class="enlarge" width = "100">
                                     </a>
                                     <!-- <a href="#modal3" data-toggle="tab">
                                         <img src="assets/img/quick-view/s6.jpg" alt="">
@@ -684,10 +707,10 @@
                                 </div>
                                 <div class="quick-view-list nav" role="tablist">
                                     <a class="active" href="assets/img/Krishna and Mother/PXL_20210918_103346231_3.jpg">
-                                        <img src="assets/img/Krishna and Mother/PXL_20210918_103346231_3.jpg" height = "112" width = "100">
+                                        <img src="assets/img/Krishna and Mother/PXL_20210918_103346231_3.jpg" height = "112" class="enlarge" width = "100">
                                     </a>
                                     <a href="assets/img/Krishna and Mother/PXL_20210918_103402975_3.jpg" >
-                                        <img src="assets/img/Krishna and Mother/PXL_20210918_103402975_3.jpg" height = "112" width = "100">
+                                        <img src="assets/img/Krishna and Mother/PXL_20210918_103402975_3.jpg" height = "112" class="enlarge" width = "100">
                                     </a>
                                     <!-- <a href="#modal3" data-toggle="tab">
                                         <img src="assets/img/quick-view/s6.jpg" alt="">
@@ -743,13 +766,13 @@
                                 </div>
                                 <div class="quick-view-list nav" role="tablist">
                                     <a class="active" href="assets/img/Subramanian/PXL_20210918_104827137_3.jpg">
-                                        <img src="assets/img/Subramanian/PXL_20210918_104827137_3.jpg" height = "112" width = "100">
+                                        <img src="assets/img/Subramanian/PXL_20210918_104827137_3.jpg" height = "112" class="enlarge" width = "100">
                                     </a>
                                     <a href="assets/img/Subramanian/PXL_20210918_104850790_3.jpg" >
-                                        <img src="assets/img/Subramanian/PXL_20210918_104850790_3.jpg" height = "112" width = "100">
+                                        <img src="assets/img/Subramanian/PXL_20210918_104850790_3.jpg" height = "112" class="enlarge" width = "100">
                                     </a>
                                     <a href="assets/img/Subramanian/PXL_20210918_104943365_2.jpg">
-                                        <img src="assets/img/Subramanian/PXL_20210918_104943365_2.jpg" height = "112" width = "100">
+                                        <img src="assets/img/Subramanian/PXL_20210918_104943365_2.jpg" height = "112" class="enlarge" width = "100">
                                     </a> 
                                 </div>
                             </div>
@@ -802,13 +825,13 @@
                                 </div>
                                 <div class="quick-view-list nav" role="tablist">
                                     <a class="active" href="assets/img/Krishna with Flute/PXL_20210918_110451556_3.jpg">
-                                        <img src="assets/img/Krishna with Flute/PXL_20210918_110451556_3.jpg" height = "112" width = "100">
+                                        <img src="assets/img/Krishna with Flute/PXL_20210918_110451556_3.jpg" height = "112" class="enlarge" width = "100">
                                     </a>
                                     <a href="assets/img/Krishna with Flute/PXL_20210918_110513114_3.jpg" >
-                                        <img src="assets/img/Krishna with Flute/PXL_20210918_110513114_3.jpg" height = "112" width = "100">
+                                        <img src="assets/img/Krishna with Flute/PXL_20210918_110513114_3.jpg" height = "112" class="enlarge" width = "100">
                                     </a>
                                     <a href="assets/img/Krishna with Flute/PXL_20210918_110620664_3.jpg">
-                                        <img src="assets/img/Krishna with Flute/PXL_20210918_110620664_3.jpg" height = "112" width = "100">
+                                        <img src="assets/img/Krishna with Flute/PXL_20210918_110620664_3.jpg" height = "112" class="enlarge" width = "100">
                                     </a> 
                                 </div>
                             </div>
@@ -861,13 +884,13 @@
                                 </div>
                                 <div class="quick-view-list nav" role="tablist">
                                     <a class="active" href="assets/img/Horse Rider/PXL_20210919_104706331_3.jpg">
-                                        <img src="assets/img/Horse Rider/PXL_20210919_104706331_3.jpg" height = "112" width = "100">
+                                        <img src="assets/img/Horse Rider/PXL_20210919_104706331_3.jpg" height = "112" class="enlarge" width = "100">
                                     </a>
                                     <a href="assets/img/Horse Rider/PXL_20210919_104756084_3.jpg" >
-                                        <img src="assets/img/Horse Rider/PXL_20210919_104756084_3.jpg" height = "112" width = "100">
+                                        <img src="assets/img/Horse Rider/PXL_20210919_104756084_3.jpg" height = "112" class="enlarge" width = "100">
                                     </a>
                                     <a href="assets/img/Horse Rider/PXL_20210919_104853915_3.jpg" >
-                                        <img src="assets/img/Horse Rider/PXL_20210919_104853915_3.jpg" height = "112" width = "100">
+                                        <img src="assets/img/Horse Rider/PXL_20210919_104853915_3.jpg" height = "112" class="enlarge" width = "100">
                                     </a>
                                 </div>
                             </div>
@@ -920,13 +943,13 @@
                                 </div>
                                 <div class="quick-view-list nav" role="tablist">
                                     <a class="active" href="assets/img/Horse  Rider/PXL_20210919_110130480_3.jpg">
-                                        <img src="assets/img/Horse  Rider/PXL_20210919_110130480_3.jpg" height = "112" width = "100">
+                                        <img src="assets/img/Horse  Rider/PXL_20210919_110130480_3.jpg" height = "112" class="enlarge" width = "100">
                                     </a>
                                     <a href="assets/img/Horse  Rider/PXL_20210919_110202016_3.jpg" >
-                                        <img src="assets/img/Horse  Rider/PXL_20210919_110202016_3.jpg"  height = "112" width = "100">
+                                        <img src="assets/img/Horse  Rider/PXL_20210919_110202016_3.jpg"  height = "112" class="enlarge" width = "100">
                                     </a>
                                     <a href="assets/img/Horse  Rider/PXL_20210919_110251661_3.jpg" >
-                                        <img src="assets/img/Horse  Rider/PXL_20210919_110251661_3.jpg" height = "112" width = "100">
+                                        <img src="assets/img/Horse  Rider/PXL_20210919_110251661_3.jpg" height = "112" class="enlarge" width = "100">
                                     </a>
                                 </div>
                             </div>
@@ -979,13 +1002,13 @@
                                 </div>
                                 <div class="quick-view-list nav" role="tablist">
                                     <a class="active" href="assets/img/Hindu Saint/PXL_20210919_111335319_3.jpg">
-                                        <img src="assets/img/Hindu Saint/PXL_20210919_111335319_3.jpg" height = "112" width = "100">
+                                        <img src="assets/img/Hindu Saint/PXL_20210919_111335319_3.jpg" height = "112" class="enlarge" width = "100">
                                     </a>
                                     <a href="assets/img/Hindu Saint/PXL_20210919_111357677_3.jpg" >
-                                        <img src="assets/img/Hindu Saint/PXL_20210919_111357677_3.jpg"  height = "112" width = "100">
+                                        <img src="assets/img/Hindu Saint/PXL_20210919_111357677_3.jpg"  height = "112" class="enlarge" width = "100">
                                     </a>
                                     <!-- <a href="assets/img/Horse  Rider/PXL_20210919_110251661_3.jpg" >
-                                        <img src="assets/img/Horse  Rider/PXL_20210919_110251661_3.jpg" height = "112" width = "100">
+                                        <img src="assets/img/Horse  Rider/PXL_20210919_110251661_3.jpg" height = "112" class="enlarge" width = "100">
                                     </a> -->
                                 </div>
                             </div>
@@ -1038,13 +1061,13 @@
                                 </div>
                                 <div class="quick-view-list nav" role="tablist">
                                     <a class="active" href="assets/img/Siva Mask/PXL_20210920_091930906_3.jpg">
-                                        <img src="assets/img/Siva Mask/PXL_20210920_091930906_3.jpg" height = "112" width = "100">
+                                        <img src="assets/img/Siva Mask/PXL_20210920_091930906_3.jpg" height = "112" class="enlarge" width = "100">
                                     </a>
                                     <a href="assets/img/Siva Mask/PXL_20210920_091944678_3.jpg" >
-                                        <img src="assets/img/Siva Mask/PXL_20210920_091944678_3.jpg"  height = "112" width = "100">
+                                        <img src="assets/img/Siva Mask/PXL_20210920_091944678_3.jpg"  height = "112" class="enlarge" width = "100">
                                     </a>
                                     <!-- <a href="assets/img/Horse  Rider/PXL_20210919_110251661_3.jpg" >
-                                        <img src="assets/img/Horse  Rider/PXL_20210919_110251661_3.jpg" height = "112" width = "100">
+                                        <img src="assets/img/Horse  Rider/PXL_20210919_110251661_3.jpg" height = "112" class="enlarge" width = "100">
                                     </a> -->
                                 </div>
                             </div>
@@ -1097,13 +1120,13 @@
                                 </div>
                                 <div class="quick-view-list nav" role="tablist">
                                     <a class="active" href="assets/img/Standing Krishna/PXL_20210920_095858198.MP_3.jpg">
-                                        <img src="assets/img/Standing Krishna/PXL_20210920_095858198.MP_3.jpg" height = "112" width = "100">
+                                        <img src="assets/img/Standing Krishna/PXL_20210920_095858198.MP_3.jpg" height = "112" class="enlarge" width = "100">
                                     </a>
                                     <a href="assets/img/Standing Krishna/PXL_20210920_095918598.MP_3.jpg" >
-                                        <img src="assets/img/Standing Krishna/PXL_20210920_095918598.MP_3.jpg"   height = "112" width = "100">
+                                        <img src="assets/img/Standing Krishna/PXL_20210920_095918598.MP_3.jpg"   height = "112" class="enlarge" width = "100">
                                     </a>
                                     <!-- <a href="assets/img/Horse  Rider/PXL_20210919_110251661_3.jpg" >
-                                        <img src="assets/img/Horse  Rider/PXL_20210919_110251661_3.jpg" height = "112" width = "100">
+                                        <img src="assets/img/Horse  Rider/PXL_20210919_110251661_3.jpg" height = "112" class="enlarge" width = "100">
                                     </a> -->
                                 </div>
                             </div>
@@ -1152,17 +1175,17 @@
                                         <div class="tab-pane active show fade" id="modal1" role="tabpanel">
                                             <img src="assets/img/Christian Figure/1.jpg" height = "380" width = "320">
                                         </div>
-                                    </div>
+                                    </div>```
                                 </div>
                                 <div class="quick-view-list nav" role="tablist">
                                     <a class="active" href="assets/img/Christian Figure/2.jpg">
-                                        <img src="assets/img/Christian Figure/2.jpg" height = "112" width = "100">
+                                        <img src="assets/img/Christian Figure/2.jpg" height = "112" class="enlarge" width = "100">
                                     </a>
                                     <a href="assets/img/Christian Figure/3.jpg" >
-                                        <img src="assets/img/Christian Figure/3.jpg"   height = "112" width = "100">
+                                        <img src="assets/img/Christian Figure/3.jpg"   height = "112" class="enlarge" width = "100" >
                                     </a>
                                     <a href="assets/img/Christian Figure/4.jpg" >
-                                        <img src="assets/img/Christian Figure/4.jpg" height = "112" width = "100">
+                                        <img src="assets/img/Christian Figure/4.jpg" height = "112" class="enlarge" width = "100">
                                     </a>
                                 </div>
                             </div>
