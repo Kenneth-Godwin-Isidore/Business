@@ -1,3 +1,18 @@
+var id={
+    'Nandi': '100001',
+    'Ganesh': '100002',
+    'Subramanian': '100004',
+    'Horse Rider': '100006',
+    'Horse rider': '100007',
+    'Hindu Saint': '100008',
+    'Siva Mask': '100009',
+    "Krishna With Flute" : '100005',
+    'Standing Krishna': '100010',
+    'Christian Figure': '100011',
+    'Krishna And Mother': '100003',
+    
+}
+
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready)
 } else {
@@ -44,6 +59,7 @@ function enquireCart()
     for(var i=0;i<sessionStorage.length;i++)
     {
         subject+=cartRows[i].getElementsByClassName('product-name')[0].innerText
+        subject=subject+'('+id[cartRows[i].getElementsByClassName('product-name')[0].innerText]+') '
         subject+=", "
     }
     if(name=="") 
@@ -58,24 +74,30 @@ function enquireCart()
         }
         else
         {
-            subject+=". My name is"
-            subject+= name
-            subject+=". My contact is "
-            subject+= phone
-            subject+= ", "
-            subject+= mail    
-            Email.send({
-                Host: "smtp.gmail.com",
-                Username: "trialmailfortest2@gmail.com",
-                Password: "hahaha@123",
-                To: 'indianartsandcurious@gmail.com',
-                From: "trialmailfortest2@gmail.com",
-            Subject: "Enquiry Mail",
-            Body: subject,
-          })
-            .then(function (message) {
-              alert("enquiry sent successfully")
-            }).then(()=>enquireCartWhatsapp())
+            if(mail=="")
+            {
+                alert("Enter your email")
+            }
+            else{
+                subject+=". My name is "
+                subject+= name
+                subject+=". My contact is "
+                subject+= phone
+                subject+= ", "
+                subject+= mail   
+                Email.send({
+                    Host: "smtp.gmail.com",
+                    Username: "trialmailfortest2@gmail.com",
+                    Password: "hahaha@123",
+                    To: 'indianartsandcurious@gmail.com',
+                    From: "trialmailfortest2@gmail.com",
+                Subject: "Enquiry Mail",
+                Body: subject,
+                })
+                .then(function (message) {
+                alert("enquiry sent successfully")
+                }).then(()=>enquireCartWhatsapp())
+            }
         }
         
     }
@@ -85,16 +107,21 @@ function enquireCart()
 function enquireCartWhatsapp()
 {
     var src = "https://wa.me/918075336002?text="
-    var text = "Hey, I would like to enquire about "
+    var subject = "Hey, I would like to enquire about "
+    var cartItemContainer = document.getElementsByClassName('table-body')[0]
+    var cartRows = cartItemContainer.getElementsByTagName('tr')
+    var mail = document.getElementById("exampleInputEmail1").value;
+    var name = document.getElementById("exampleInputName").value
     for(var i=0;i<sessionStorage.length;i++)
     {
-        var key = sessionStorage.key(i);
-        var val = JSON.parse(sessionStorage.getItem(key))
-        text+=val.title
-        text+=", "
+        subject+=cartRows[i].getElementsByClassName('product-name')[0].innerText
+        subject=subject+'('+id[cartRows[i].getElementsByClassName('product-name')[0].innerText]+') '
+        subject+=", "
     }
-    var res = encodeURI(text);
-    src+=text
+    subject+=". My name is "
+    subject+= name
+    var res = encodeURI(subject);
+    src+=res
     window.location.href = src;
 
 }
