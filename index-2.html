@@ -8,6 +8,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  
+        <!-- Including jQuery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+      
+        <!-- Including Bootstrap JS -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 		
 		<!-- all css here -->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -30,6 +38,9 @@
             .enlarge:hover {
                 -webkit-transform:scale(3.5); /* or some other value */
                 transform:scale(3.5);
+            }
+            .alert{
+                display:none;
             }
         </style>
     </head>
@@ -477,7 +488,7 @@
                                                 <i class="ion-ios-email-outline"></i>
                                             </div>
                                             <div class="food-info-content">
-                                                <p><a href="#">indianartsandcurious@gmail.com</a></p>
+                                                <p><a href="mailto:indianartsandcurious@gmail.com">indianartsandcurious@gmail.com</a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -1235,7 +1246,11 @@
                     </div>
                 </div>
             </div>
-            <!-- modal -->
+            <!-- modal
+            <div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                Success! message sent successfully.
+            </div> -->
         </div>
         
         

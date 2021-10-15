@@ -23,6 +23,7 @@ function ready(){
         let r = i
         let button = addToCartButtons[i]
         button.addEventListener('click',(evt) => addToCartClicked(r, evt))
+        $(".alert").hide().show('medium');
     }
     var removeCartItemButtons = document.getElementsByClassName('ti-trash')
     for (var i = 0; i < removeCartItemButtons.length; i++) {
