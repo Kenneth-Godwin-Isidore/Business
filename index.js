@@ -15,6 +15,12 @@ if (document.readyState == 'loading') {
     // }
     ready()
 }
+
+var script = document.createElement('script');
+script.src = 'https://code.jquery.com/jquery-3.5.1.min.js';
+script.type = 'text/javascript';
+document.getElementsByTagName('head')[0].appendChild(script);
+
 function ready(){
     let addToCartButtons = document.getElementsByClassName('action-cart-2')
     document.getElementsByClassName("count-style")[0].innerText = sessionStorage.length
@@ -51,6 +57,7 @@ async function addToCartClicked(h,event) {
         "title" : title,
         "imageSrc" : imageSrc
     }
+    addToCartNotif();
     document.getElementsByClassName("count-style")[0].innerText = sessionStorage.length
     if(sessionStorage.getItem(title)==null)
     {
@@ -73,12 +80,25 @@ function addToCartModel(event)
         "title" : title,
         "imageSrc" : imageSrc
     }
+    var alert = `
+        <br>
+        <div class="alert alert-success p-3" role="alert">
+                Item added to cart
+        </div>
+    `
+    let content = button.parentElement.parentElement
+    let alertDiv = document.createElement('div')
+
+    alertDiv.innerHTML = alert
+    content.append(alertDiv)
+    setTimeout(()=>content.getElementsByClassName("alert")[0].remove(),2000)
     document.getElementsByClassName("count-style")[0].innerText = sessionStorage.length
     if(sessionStorage.getItem(title)==null)
     {
         sessionStorage.setItem(title,JSON.stringify(product))
         console.log(sessionStorage.getItem(title))
         addItemToCart(title, imageSrc)
+        // myFunction();
     }
 }
 
@@ -101,6 +121,7 @@ function addItemToCart(title, imageSrc) {
     cartRow.innerHTML = cartRowContents
     cartUl.append(cartRow)
     cartRow.getElementsByClassName('ti-trash')[0].addEventListener('click', removeCartItem)
+    
 }
 
 function removeCartItem(event) {
@@ -112,3 +133,12 @@ function removeCartItem(event) {
     var cartUl = cartItemContainer.getElementsByTagName('ul')[0]
     document.getElementsByClassName("count-style")[0].innerText = sessionStorage.length
 }
+
+function addToCartNotif() {
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+  }
+
+
+

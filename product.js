@@ -40,6 +40,7 @@ async function addToCartClicked(h,event) {
         "title" : title,
         "imageSrc" : imageSrc
     }
+    addToCartNotif();
     document.getElementsByClassName("count-style")[0].innerText = sessionStorage.length
     if(sessionStorage.getItem(title)==null)
     {
@@ -61,6 +62,18 @@ function addToCartModel(event)
         "title" : title,
         "imageSrc" : imageSrc
     }
+    var alert = `
+        <br>
+        <div class="alert alert-success p-3" role="alert">
+                Item added to cart
+        </div>
+    `
+    let content = button.parentElement.parentElement
+    let alertDiv = document.createElement('div')
+
+    alertDiv.innerHTML = alert
+    content.append(alertDiv)
+    setTimeout(()=>content.getElementsByClassName("alert")[0].remove(),2000)
     document.getElementsByClassName("count-style")[0].innerText = sessionStorage.length
     if(sessionStorage.getItem(title)==null)
     {
@@ -102,4 +115,9 @@ function addToCartModel(event)
         document.getElementsByClassName("count-style")[0].innerText = sessionStorage.length
     }
 
+    function addToCartNotif() {
+        var x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    }
 
